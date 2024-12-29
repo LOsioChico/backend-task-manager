@@ -6,6 +6,7 @@ import swaggerJsdoc from "swagger-jsdoc";
 
 import { config, swaggerOptions } from "./config";
 import { httpLogger, logger } from "./utils/logger";
+import taskRoutes from "./routes/taskRoutes";
 
 const app = express()
   .use(express.json())
@@ -16,9 +17,7 @@ const app = express()
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World");
-});
+app.use("/api/tasks", taskRoutes);
 
 app.listen(config.port, () => {
   logger.info(`Server is running on port ${config.port}`);
