@@ -5,12 +5,11 @@ import cors from "cors";
 import { config } from "./config";
 import { httpLogger, logger } from "./utils/logger";
 
-const app = express();
-
-app.use(express.json());
-app.use(rateLimit(config.rateLimit));
-app.use(cors({ origin: config.corsOrigins }));
-app.use(httpLogger);
+const app = express()
+  .use(express.json())
+  .use(rateLimit(config.rateLimit))
+  .use(cors({ origin: config.corsOrigins }))
+  .use(httpLogger);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World");
