@@ -1,7 +1,4 @@
 import express, { type Request, type Response } from "express";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const app = express();
 
