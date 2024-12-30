@@ -2,7 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "es2022",
+    "target": "ESNext",
     "outDir": "./dist",
     "rootDir": "./src",
     "allowJs": true,
@@ -13,10 +13,12 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "module": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "noEmit": false,
-    "lib": ["es2022"]
+    "lib": ["ESNext"],
+    "baseUrl": "./"
   },
-  "include": ["**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
