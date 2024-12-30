@@ -14,6 +14,7 @@ This API provides a task management system that allows users to:
 - Filter tasks by completion status
 - View task details including title, description, status, and creation date
 - Manage task states (completed/pending)
+- Monitor API health status
 
 ## Technical Stack
 
@@ -50,19 +51,33 @@ This API provides a task management system that allows users to:
 
 3. **Environment Setup**
 
-   This project uses environment variables to configure the application. You need to create a `.env` file in the root of the project.
+   Create a `.env` file in the root directory with the following variables:
 
-   ```bash
-   cp .env.example .env
+   ```env
+   PORT=3001
+   MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/
+   NODE_ENV=development
+   CORS_ORIGINS=http://localhost:3000
    ```
 
 4. **Run the application**
 
    ```bash
+   # Development
    yarn dev
+
+   # Production build
+   yarn build
+   yarn start
    ```
 
 ## API Endpoints
+
+### Health Check
+
+- `GET /api/health`
+  - Check API and database health status
+  - Returns uptime and environment information
 
 ### Tasks
 
@@ -106,7 +121,8 @@ This API provides a task management system that allows users to:
 
 ## API Documentation
 
-The API documentation is available at http://localhost:3001/api-docs.
+The API documentation is available at `/api-docs` when running locally or at:
+https://backend-task-manager-p3o5.onrender.com/api-docs
 
 ## Available Scripts
 
@@ -134,6 +150,7 @@ The API documentation is available at http://localhost:3001/api-docs.
 - **Input Validation**: All endpoints include proper validation
 - **Error Handling**: Structured error responses with appropriate HTTP codes
 - **Logging**: Request logging and error tracking
+- **Health Monitoring**: Endpoint to check API and database status
 - **API Security**:
   - Rate limiting
   - CORS protection
@@ -143,7 +160,7 @@ The API documentation is available at http://localhost:3001/api-docs.
 
 ## Error Handling
 
-The API uses a custom error handler to standardize error responses.
+The API uses a custom error handler to standardize error responses:
 
 ```json
 {
@@ -159,9 +176,9 @@ The API uses a custom error handler to standardize error responses.
 
 ## Environment Variables
 
-| Variable     | Description               | Required |
-| ------------ | ------------------------- | -------- |
-| PORT         | API server port           | No       |
-| MONGODB_URI  | MongoDB connection string | Yes      |
-| NODE_ENV     | Environment               | No       |
-| CORS_ORIGINS | Allowed CORS origins      | No       |
+| Variable     | Description               | Required | Default                    |
+| ------------ | ------------------------- | -------- | -------------------------- |
+| PORT         | API server port           | No       | 3001                       |
+| MONGODB_URI  | MongoDB connection string | Yes      | mongodb://localhost:27017/ |
+| NODE_ENV     | Environment               | No       | development                |
+| CORS_ORIGINS | Allowed CORS origins      | No       | http://localhost:3000      |

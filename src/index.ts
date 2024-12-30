@@ -8,11 +8,14 @@ import { config, swaggerOptions } from "./config";
 import { httpLogger, logger } from "./utils/logger";
 import taskRoutes from "./routes/taskRoutes";
 import { errorHandler } from "./middleware/errorHandler";
+import healthRoutes from "./routes/healthRoutes";
 
 const app = express()
   .use(express.json())
   .use(cors({ origin: config.corsOrigins }))
   .use(httpLogger);
+
+app.use("/api/health", healthRoutes);
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
