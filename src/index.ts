@@ -1,6 +1,5 @@
 import express, { type Request, type Response } from "express";
 import mongoose from "mongoose";
-import { rateLimit } from "express-rate-limit";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
@@ -12,7 +11,6 @@ import { errorHandler } from "./middleware/errorHandler";
 
 const app = express()
   .use(express.json())
-  .use(rateLimit(config.rateLimit))
   .use(cors({ origin: config.corsOrigins }))
   .use(httpLogger);
 
