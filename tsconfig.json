@@ -3,6 +3,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "es2022",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
@@ -12,7 +14,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "module": "preserve",
-    "noEmit": true,
+    "noEmit": false,
     "lib": ["es2022"]
   },
   "include": ["**/*.ts"],
