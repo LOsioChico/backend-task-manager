@@ -26,7 +26,7 @@ This API provides a task management system that allows users to:
 - **Documentation**: Swagger/OpenAPI
 - **Validation**: Express Validator
 - **Logging**: Winston
-- **API Security**: Rate Limiting, CORS
+- **API Security**: CORS
 
 ## Prerequisites
 
@@ -152,7 +152,6 @@ https://backend-task-manager-p3o5.onrender.com/api-docs
 - **Logging**: Request logging and error tracking
 - **Health Monitoring**: Endpoint to check API and database status
 - **API Security**:
-  - Rate limiting
   - CORS protection
   - Input sanitization
 - **Documentation**: Swagger/OpenAPI documentation
