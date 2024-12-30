@@ -7,7 +7,7 @@ export const config = {
   mongoUri: process.env.MONGODB_URI || "mongodb://localhost:27017/task-manager",
   environment: process.env.NODE_ENV || "development",
   corsOrigins: process.env.CORS_ORIGINS?.split(",") || [
-    "http://localhost:3001",
+    "http://localhost:3000",
   ],
   rateLimit: {
     windowMs: 15 * 60 * 1000, // 15 minutes
